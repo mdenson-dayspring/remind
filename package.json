@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "remind -- print reminders of upcoming events",
   "main": "lib/index.js",
-  "bin": "lib/cli/index.js",
+  "bin": "lib/cli/remind.js",
   "types": "lib/index.d.ts",
   "dependencies": {},
   "devDependencies": {
