@@ -1,0 +1,42 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "Simple starting point for cli applications using ts-node.",
+  "main": "lib/index.js",
+  "bin": "lib/cli/index.js",
+  "types": "lib/index.d.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.2"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdenson-dayspring/remind.git"
+  },
+  "author": "Matthew Denson <mdenson@dayspring-tech.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdenson-dayspring/remind/issues"
+  },
+  "homepage": "https://github.com/mdenson-dayspring/remind#readme"
+}
