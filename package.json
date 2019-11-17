@@ -1,7 +1,7 @@
 {
-  "name": "cli",
+  "name": "remind",
   "version": "1.0.0",
-  "description": "Simple starting point for cli applications using ts-node.",
+  "description": "remind -- print reminders of upcoming events",
   "main": "lib/index.js",
   "bin": "lib/cli/index.js",
   "types": "lib/index.d.ts",
