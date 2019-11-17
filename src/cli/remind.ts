@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { Greeter } from '../index';
+// import { Greeter } from '../index';
 
-console.log(Greeter('Matthew'));
+// console.log(Greeter('Matthew'));
