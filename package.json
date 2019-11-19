@@ -1,5 +1,5 @@
 {
-  "name": "remind",
+  "name": "@dayspringpartners/remind",
   "version": "1.0.0",
   "description": "remind -- print reminders of upcoming events",
   "main": "lib/index.js",
