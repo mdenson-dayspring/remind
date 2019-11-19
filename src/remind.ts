@@ -79,4 +79,4 @@ export const purge = (text: string, today: number): Reminder[] => {
 export const addReminder = (acc: Reminder[], newReminder: Reminder) => {
   acc.push(newReminder);
   return acc;
-}
+};

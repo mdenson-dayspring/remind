@@ -17,7 +17,7 @@ export const daynum = (y: number, m: number, d: number): number => {
 };
 
 export const dateToDaynum = (d: Date): number => {
-  return daynum(d.getFullYear(), d.getMonth()+1, d.getDate());
+  return daynum(d.getFullYear(), d.getMonth() + 1, d.getDate());
 };
 
 export const daynumToYear = (dn: number): number => {

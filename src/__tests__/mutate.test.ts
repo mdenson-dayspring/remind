@@ -21,7 +21,7 @@ test('purge old remove one', () => {
 });
 
 test('add reminder', () => {
-  const inReminder = { month: 1, day: 1, message: "New Year" } as Reminder;
+  const inReminder = { month: 1, day: 1, message: 'New Year' } as Reminder;
   const inAccum = [
     { month: 12, day: 6, message: "Tiffany's birthday" } as Reminder,
     { month: 1, day: 6, message: 'Epiphany' } as Reminder
@@ -29,7 +29,7 @@ test('add reminder', () => {
   const expectAccum = [
     { month: 12, day: 6, message: "Tiffany's birthday" } as Reminder,
     { month: 1, day: 6, message: 'Epiphany' } as Reminder,
-    { month: 1, day: 1, message: "New Year" } as Reminder
+    { month: 1, day: 1, message: 'New Year' } as Reminder
   ];
   expect(addReminder(inAccum, inReminder)).toEqual(expectAccum);
 });

@@ -21,13 +21,10 @@ test('cli bad param', async () => {
 });
 
 test('cli add reminder', async () => {
-  copyFileSync('./fixtures/one', './fixtures/temp')
+  copyFileSync('./fixtures/one', './fixtures/temp');
   expect(await main('11 11 Vetrans Day', './fixtures/temp', moment('2019-11-19').toDate())).toBe(0);
 
-  const expectFile =
-    "2019 11 20 MW - sprint 1.0.43 to prod\n" +
-    "11 23 Sunday\n" +
-    "11 11 Vetrans Day\n";
+  const expectFile = '2019 11 20 MW - sprint 1.0.43 to prod\n' + '11 23 Sunday\n' + '11 11 Vetrans Day\n';
   const newFile = readFileSync('./fixtures/temp', 'utf8');
   expect(newFile).toEqual(expectFile);
 
@@ -36,12 +33,10 @@ test('cli add reminder', async () => {
   }
 });
 test('cli add with a purge', async () => {
-  copyFileSync('./fixtures/one', './fixtures/temp')
+  copyFileSync('./fixtures/one', './fixtures/temp');
   expect(await main('11 11 Vetrans Day', './fixtures/temp', moment('2019-11-21').toDate())).toBe(0);
 
-  const expectFile =
-    "11 23 Sunday\n" +
-    "11 11 Vetrans Day\n";
+  const expectFile = '11 23 Sunday\n' + '11 11 Vetrans Day\n';
   const newFile = readFileSync('./fixtures/temp', 'utf8');
   expect(newFile).toEqual(expectFile);
 

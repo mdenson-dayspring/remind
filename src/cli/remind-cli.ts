@@ -1,5 +1,15 @@
-import { addReminder, dateToDaynum, getFileContents, parser, toText, todaysReminders, writeFileContents } from '../index';
+import {
+  addReminder,
+  dateToDaynum,
+  getFileContents,
+  parser,
+  todaysReminders,
+  toText,
+  writeFileContents
+} from '../index';
 import { purge } from '../remind';
+
+/* tslint:disable:no-console */
 
 export const main = async (param: string, filename: string, date: Date): Promise<number> => {
   if (param.length > 0) {
@@ -15,7 +25,7 @@ export const main = async (param: string, filename: string, date: Date): Promise
       try {
         const remindersText = await getFileContents(filename);
 
-        let newDB = addReminder(purge(remindersText, dateToDaynum(date)), parser(param)[0]);
+        const newDB = addReminder(purge(remindersText, dateToDaynum(date)), parser(param)[0]);
         return writeFileContents(filename, toText(newDB));
       } catch (e) {
         console.error('Could not read reminders file.');
@@ -92,3 +102,5 @@ const printUsage = () => {
     '\n';
   console.log(usage);
 };
+
+/* tslint:enable:no-console */
