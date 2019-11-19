@@ -1,4 +1,5 @@
-import { daynum, daynumToYear } from '../index';
+import { dateToDaynum, daynum, daynumToYear } from '../index';
+import * as moment from 'moment';
 
 test('daynum calcs', () => {
   expect(daynum(1970, 1, 1)).toEqual(1);
@@ -13,6 +14,11 @@ test('daynum calcs', () => {
   expect(daynum(2021, 1, 1)).toEqual(17897 + 365 + 366 + 1);
   expect(daynum(2021, 3, 1)).toEqual(17897 + 365 + 366 + 31 + 28 + 1);
   expect(daynum(2021, 12, 31)).toEqual(17897 + 365 + 366 + 365);
+});
+
+test('daynum calcs from date', () => {
+  expect(dateToDaynum(moment('2019-11-19').toDate())).toEqual(daynum(2019, 11, 19));
+  expect(dateToDaynum(moment('2020-03-12').toDate())).toEqual(daynum(2020, 3, 12));
 });
 
 test('daynum reverse calcs', () => {

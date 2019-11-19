@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
-// import { Greeter } from '../index';
+import { main } from './remind-cli';
+import * as moment from 'moment';
+import { homedir } from 'os';
 
-// console.log(Greeter('Matthew'));
+main(process.argv.slice(2).join(' '), homedir() + '/.reminders', moment().toDate())
+  .then(ret => ret > 0 ? process.exit(ret) : process.exit());
+

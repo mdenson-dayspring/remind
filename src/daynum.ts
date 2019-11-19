@@ -16,6 +16,10 @@ export const daynum = (y: number, m: number, d: number): number => {
   return n + d;
 };
 
+export const dateToDaynum = (d: Date): number => {
+  return daynum(d.getFullYear(), d.getMonth()+1, d.getDate());
+};
+
 export const daynumToYear = (dn: number): number => {
   let guess = Math.trunc(dn / 365) + 1970;
   while (daynum(guess, 1, 1) > dn) {
