@@ -46,7 +46,7 @@ EXAMPLE
     2019 7 2 lunch with Pat
 ```
 
-# Install
+# Install to use
 ```
-$ npm install
+$ sudo npm i -g @dayspringpartners/remind
 ```
