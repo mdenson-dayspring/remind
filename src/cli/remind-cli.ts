@@ -3,13 +3,13 @@ import {
   dateToDaynum,
   getFileContents,
   parser,
+  print,
+  printError,
   todaysReminders,
   toText,
   writeFileContents
 } from '../index';
 import { purge } from '../remind';
-
-/* tslint:disable:no-console */
 
 export const main = async (param: string, filename: string, date: Date): Promise<number> => {
   if (param.length > 0) {
@@ -17,18 +17,18 @@ export const main = async (param: string, filename: string, date: Date): Promise
       printHelp();
       return 0;
     } else if (!param.match(/^(\d{3,4} )*\d{1,2} \d{1,2} .+$/)) {
-      console.error('not correctly formatted');
+      printError('not correctly formatted');
       printUsage();
       return 1;
     } else {
-      console.error('add reminder "' + param + '"');
+      print('add reminder "' + param + '"');
       try {
         const remindersText = await getFileContents(filename);
 
         const newDB = addReminder(purge(remindersText, dateToDaynum(date)), parser(param)[0]);
         return writeFileContents(filename, toText(newDB));
       } catch (e) {
-        console.error('Could not read reminders file.');
+        printError('Could not read reminders file.');
         return 1;
       }
     }
@@ -36,10 +36,10 @@ export const main = async (param: string, filename: string, date: Date): Promise
     try {
       const remindersText = await getFileContents(filename);
       const today = dateToDaynum(date);
-      console.log(toText(todaysReminders(remindersText, today)));
+      print(toText(todaysReminders(remindersText, today)));
       return 0;
     } catch (e) {
-      console.error('Could not read reminders file.');
+      printError('Could not read reminders file.');
       return 1;
     }
   }
@@ -91,7 +91,7 @@ const printHelp = () => {
     '\n    7 4 Independence Day' +
     '\n    2019 7 2 lunch with Pat' +
     '\n';
-  console.log(manual);
+  print(manual);
 };
 const printUsage = () => {
   const usage =
@@ -100,7 +100,5 @@ const printUsage = () => {
     '\n  remind [year] month day message -- add reminder to database' +
     '\n  remind help -- show manual' +
     '\n';
-  console.log(usage);
+  print(usage);
 };
-
-/* tslint:enable:no-console */
