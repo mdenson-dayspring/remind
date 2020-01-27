@@ -1,4 +1,4 @@
-# @dayspringtech/remind
+# @dayspringpartners/remind
 
 ```
 NAME
