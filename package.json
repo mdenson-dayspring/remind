@@ -1,6 +1,6 @@
 {
   "name": "@dayspringpartners/remind",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "remind -- print reminders of upcoming events",
   "main": "lib/index.js",
   "bin": "lib/cli/remind.js",
